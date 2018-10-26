@@ -8,5 +8,5 @@ app_router = routers.DefaultRouter()
 
 urlpatterns = [
     # documentation
-    path('docs/', include_docs_urls(title='ubeng Backend API', public=True)),
+    path('docs/', include_docs_urls(title='Backend API', public=True)),
 ]
