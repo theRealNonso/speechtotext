@@ -13,7 +13,7 @@ class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = tm.Client
         fields = (
-            'userame',
+            'username',
             'email',
             'password',
         )
@@ -21,3 +21,10 @@ class ClientSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         client = tm.Client.objects.create_user(**validated_data)
         return client
+
+
+class TranscriptSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tm.Transcript
+        fields = '__all__'
