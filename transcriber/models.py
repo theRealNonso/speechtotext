@@ -50,7 +50,7 @@ class Client(AbstractUser):
 
 class Transcript(models.Model):
     username = models.ForeignKey(Client, on_delete=models.CASCADE)
-    trint_id = models.IntegerField()
+    trint_id = models.IntegerField(unique=True)
     file_name = models.CharField(max_length=50)
     file = models.FileField(max_length=None)
     transcript = models.TextField()
