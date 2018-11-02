@@ -75,4 +75,4 @@ class Transcript(models.Model):
     upload_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return (self.source_file_name, self.client)
+        return (self.destination_blob_name, self.client)

@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
 import transcriber.models as tm
+from django.shortcuts import get_object_or_404
 import io
 import os
 from google.cloud import storage
@@ -60,3 +61,35 @@ class UploadView(viewsets.ModelViewSet):
             upload_blob(client.bucket_name, source_file_name, destination_blob_name)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class TranscribeView(viewsets.ModelViewSet):
+    """
+    This viewsets retrieves all the url of a logged in user
+    bearing in mind a user can only have one storage bucket
+    """
+    queryset = tm.Transcript.objects.all()
+    serializer_class = ts.UriSerializer
+
+    @classmethod
+    def transcribe_gcs(gcs_uri):
+        """Transcribes the audio file specified by the gcs_uri."""
+
+        client = speech.SpeechClient()
+
+        audio = types.RecognitionAudio(uri=gcs_uri)
+        config = types.RecognitionConfig(
+            encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+            sample_rate_hertz=16000,
+            language_code='en-US')
+
+        response = client.recognize(config, audio)
+        for result in response.results:
+            # The first alternative is the most likely one for this portion.
+            print(u'Transcript: {}'.format(result.alternatives[0].transcript))
+
+    def retrieve(self, request, pk=None):
+        queryset = tm.Transcript.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = ts.UriSerializer(user)
+        return Response(serializer.data)
