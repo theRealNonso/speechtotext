@@ -8,13 +8,14 @@ import transcriber.views as tv
 
 router = DefaultRouter(trailing_slash=False)
 app_router = routers.DefaultRouter()
-app_router.register(r'upload', tv.TranscriptView, 'upload')
-app_router.register(r'gettrint', tv.GetTrintViewset, 'gettrint')
+app_router.register(r'upload', tv.UploadView, 'upload')
+# app_router.register(r'gettrint', tv.GetTrintViewset, 'gettrint')
 
 urlpatterns = [
     # documentation
     path('docs/', include_docs_urls(title='Backend API', public=True)),
     path('accounts/', include('rest_registration.api.urls')),
-    path('uploadtrint/', tv.uploadtrint),
+    # path('trint/<int:trintId>/', tv.ExportTrint.as_view()),
+    # path('uploadtrint/', tv.UploadTrint.as_view()),
     path('', include(app_router.urls)),
 ]

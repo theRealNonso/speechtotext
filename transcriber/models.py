@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from google.cloud import storage
+import random
+import string
 
 
 class ClientManager(BaseUserManager):
@@ -8,8 +11,19 @@ class ClientManager(BaseUserManager):
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
-        """Create and save a User with a given emailnumber and password."""
-        user = self.model(email=email, **extra_fields)
+
+        def randword(length):
+            letters = string.ascii_lowercase
+            return ''.join(random.choice(letters) for i in range(length))
+
+        def create_bucket(bucket_name):
+            """Creates a new bucket."""
+            storage_client = storage.Client()
+            bucket = storage_client.create_bucket(bucket_name)
+            print('Bucket {} created'.format(bucket.name))
+
+        """Create and save a User with a given email and password."""
+        user = self.model(email=email, bucket=create_bucket(randword(10)), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -40,7 +54,11 @@ class ClientManager(BaseUserManager):
 class Client(AbstractUser):
     username = models.CharField(max_length=5, default="", unique=False)
     email = models.EmailField(unique=True)
+    bucket_name = models.CharField(max_length=50, unique=True)
     date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return (self.email)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -49,12 +67,12 @@ class Client(AbstractUser):
 
 
 class Transcript(models.Model):
-    username = models.ForeignKey(Client, on_delete=models.CASCADE)
-    trint_id = models.IntegerField(blank=True, unique=True)
-    file_name = models.CharField(max_length=50, blank=True)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    destination_blob_name = models.CharField(max_length=50, blank=True)
+    source_file_name = models.CharField(max_length=50, blank=True)
     file = models.FileField(max_length=None)
     transcript = models.TextField(blank=True)
     upload_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return (self.file_name, self.username)
+        return (self.source_file_name, self.client)

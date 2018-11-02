@@ -20,7 +20,7 @@ class ClientSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         client = tm.Client.objects.create_user(**validated_data)
-        return client
+        return (client)
 
 
 class TranscriptSerializer(serializers.ModelSerializer):
