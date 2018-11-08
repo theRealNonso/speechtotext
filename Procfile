@@ -1,1 +1,1 @@
-web: gunicorn speechtotext.wsgi --preload
+web: gunicorn speechtotext.wsgi
