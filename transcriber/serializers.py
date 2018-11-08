@@ -34,4 +34,4 @@ class UriSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = tm.Transcript
-        fields = ('client', 'destination_blob_name',)
+        fields = ('client',)
