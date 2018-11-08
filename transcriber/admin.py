@@ -5,14 +5,13 @@ import transcriber.models as tm
 
 
 class TranscriberAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'email',
-                    'bucket_name')
+    list_display = ('id', 'username', 'email')
     list_filter = ['date']
     search_fields = ['email']
 
 
 class TranscriptAdmin(admin.ModelAdmin):
-    list_display = ('id', 'client', 'destination_blob_name',
+    list_display = ('id', 'client',
                     'source_file_name',
                     'transcript',
                     'upload_date',
