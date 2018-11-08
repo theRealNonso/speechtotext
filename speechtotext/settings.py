@@ -27,7 +27,7 @@ SECRET_KEY = 'czuckt9^sgl=5s0ug$&8plbl=-1_71btok8mzm579o0#yq4)!h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'googlestt.herokuapp.com']
 
 
 # Application definition
@@ -118,7 +118,6 @@ OAUTH2_PROVIDER = {
                'write': 'Write scope',
                'groups': 'Access to your groups'}
 }
-
 
 
 # Password validation
