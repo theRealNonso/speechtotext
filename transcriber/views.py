@@ -27,10 +27,13 @@ class TranscriptView(viewsets.ModelViewSet):
                 language_code='en-US')
 
             response = client.recognize(config, audio)
-            for result in response.results:
-                print(u'Transcript: {}'.format(result.alternatives[0].transcript))
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            print('something')
+            print(type(response))
+            for result in response.results:
+                # returns empty response if file is invalid
+                # audio must be less than one minuite
+                return Response(result.alternatives[0].transcript, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
