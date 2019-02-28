@@ -14,28 +14,7 @@ class TranscriptView(viewsets.ModelViewSet):
     queryset = tm.Transcript.objects.all()
     serializer_class = ts.TranscriptSerializer
     parser_classes = (MultiPartParser, )
-
-    def perform_create(self, serializer):
-        serializer = ts.TranscriptSerializer(data=self.request.data)
-        if serializer.is_valid():
-            file = self.request.FILES['file'].read()
-            client = speech.SpeechClient()
-            audio = types.RecognitionAudio(content=file)
-            config = types.RecognitionConfig(
-                encoding=enums.RecognitionConfig.AudioEncoding.AMR_WB,
-                sample_rate_hertz=16000,
-                language_code='en-US')
-
-            response = client.recognize(config, audio)
-            serializer.save()
-            print('something')
-            print(type(response))
-            for result in response.results:
-                # returns empty response if file is invalid
-                # audio must be less than one minuite
-                return Response(result.alternatives[0].transcript, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+    
 
 class GetTranscriptView(viewsets.ModelViewSet):
     """

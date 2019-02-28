@@ -14,6 +14,5 @@ app_router.register(r'transcribe', tv.TranscriptView, 'transcribe')
 urlpatterns = [
     # documentation
     path('docs/', include_docs_urls(title='Backend API', public=True)),
-    path('accounts/', include('rest_registration.api.urls')),
     path('', include(app_router.urls)),
 ]

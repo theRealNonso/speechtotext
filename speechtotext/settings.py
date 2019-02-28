@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from decouple import config
+from dj_database_url import parse as db_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,10 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'oauth2_provider',
     'transcriber',
     'rest_framework',
-    'rest_registration',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -89,14 +90,7 @@ WSGI_APPLICATION = 'speechtotext.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'speech',
-        'USER': 'nonso',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
+    'default': config('DATABASE_URL', default='postgres:///speech', cast=db_url),
 }
 
 REST_FRAMEWORK = {
@@ -104,17 +98,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ),
 
-}
-
-
-OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope',
-               'write': 'Write scope',
-               'groups': 'Access to your groups'}
 }
 
 
