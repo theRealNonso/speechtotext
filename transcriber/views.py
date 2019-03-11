@@ -16,16 +16,16 @@ class TranscriptView(viewsets.ModelViewSet):
     parser_classes = (MultiPartParser, )
     
 
-class GetTranscriptView(viewsets.ModelViewSet):
-    """
-    This viewsets retrieves all the url of a logged in user
-    bearing in mind a user can only have one storage bucket
-    """
-    queryset = tm.Transcript.objects.all()
-    serializer_class = ts.UriSerializer
+# class GetTranscriptView(viewsets.ModelViewSet):
+#     """
+#     This viewsets retrieves all the url of a logged in user
+#     bearing in mind a user can only have one storage bucket
+#     """
+#     queryset = tm.Transcript.objects.all()
+#     serializer_class = ts.UriSerializer
 
-    def retrieve(self, request, pk=None):
-        queryset = tm.Transcript.objects.all()
-        user = get_object_or_404(queryset, pk=pk)
-        serializer = ts.UriSerializer(user)
-        return Response(serializer.data)
+#     def retrieve(self, request, pk=None):
+#         queryset = tm.Transcript.objects.all()
+#         user = get_object_or_404(queryset, pk=pk)
+#         serializer = ts.UriSerializer(user)
+#         return Response(serializer.data)

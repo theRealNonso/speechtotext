@@ -37,7 +37,7 @@ class TranscriptSerializer(serializers.ModelSerializer):
         client = speech.SpeechClient()
 
         # [START speech_python_migration_async_request]
-        with io.open('/home/nonso/Downloads/InboundSampleRecording.flac', 'rb') as audio_file:
+        with io.open('./InboundSampleRecording.flac', 'rb') as audio_file:
             content = audio_file.read()
 
         audio = types.RecognitionAudio(content=content)
@@ -67,9 +67,3 @@ class TranscriptSerializer(serializers.ModelSerializer):
         model = tm.Transcript
         fields = '__all__'
 
-
-class UriSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = tm.Transcript
-        fields = ('client',)

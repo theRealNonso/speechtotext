@@ -8,7 +8,7 @@ import transcriber.views as tv
 
 router = DefaultRouter(trailing_slash=False)
 app_router = routers.DefaultRouter()
-app_router.register(r'retrieve', tv.GetTranscriptView, 'retrieve')
+# app_router.register(r'retrieve', tv.GetTranscriptView, 'retrieve')
 app_router.register(r'transcribe', tv.TranscriptView, 'transcribe')
 
 urlpatterns = [
