@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lofty-voyage-232910",
+  "private_key_id": "618d08ec8e27b5569c40237b0325f3391245d992",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+jASML+6LORnw\n5ZsHtUhsYqfgW+ATrixUs6WIeauKn7eZMSKI0auUJKuSx4+Rf7cg5EwNpkkKXetQ\nEh5INv0l8y2mj0r2WlZf1m0qImlKDSxJXm1KuRYFoL8lgtqppbHFwWqdfWjyUAbx\ntCVbHcZuG5zAfPUdLp9+zDYU/ynl86e3ai/0S5T64PL0Z1LG3pqc9WxvNm1Wp6F3\nEI4sHQysmF3rWWUBYCirVoAfxVMvlyb4KVRCLmm43woH7Qvy3z6RIhCjx4B3Hj4x\n5W5gxBhp/2QCG7Si+4CWmAw62rXWHgZZi3BXBBhnZA0iKjJ/qZ/LQCVSQTtCkdL7\nS6L39kdlAgMBAAECggEABJUJZvWgHuj4nrpmyACsBS86KkMLWG3P0xme2XFTlrnQ\niHaOBgxEvANFvPnfkfgoRzo2Of3Ns9oeVoaZA9OOsuLuLhs0CkiR2ywk4+Z/8a/v\naLREnI9m4CvFbPmAmKPLap4EGlVxuKIECLv0SgSlSPCRDG/01QbR/xKaGlcogscW\njLZHTNxbFPNdEML60lIHjP7hYiFjFgq0GO1N5jHO+QAZv/QuMcaNv0b653LEPu3Z\nKDnpVkLIA+3YWOUUZAvn+EpzTw/1Ynq1mWlHpocvXnqzst33ChyyeMLmWp3roheE\nrduq0Daf9F4bsae2mRAumRKgpdFvAWJO7m64OAlI4QKBgQDz2ZOvm0QLCULNeGLg\nnIQ9cyS9AUE4+NPJr4MxXThWVRAn/HhHge44Y3dxgtyO0UGtDOwekpGrbt9qF/au\nfZTnr2yMGDrpz0o+Z3lyC5g7SS6XRFGvUUkfE2+gi63ffg8NGM+4+1Ij61Zl5UnC\n/mRJBThRBrqWxDULnjqF+f/iVwKBgQDICokt+EXsfjcotny3eiIuijuByHjnygtf\novBQi14GdEV9ZXgoOcz7B22lm/z1eUh3ofgVK7HQsQGHc6EKG5PCDsxS6y5NfO35\n7GQEKS2BPl4XNRJ7j3cov1yLRoV8rVAl3J24Bv6ZCLaTyKsdgsS+h3S1COnrggwo\ntIOwCWnmowKBgG1RKQgcjxBzgmMiiREwmYgCyoGAwoCL7EYKTMIgjFUHpUqHwFQu\nR2E4Fh/pDn9oCA1QMboy8uLrvXSOcaQf4FVNK1hStHaE2z/Gm4co84IAeMaPdh8m\nTaWEzRIoDDaZCJ5SdSz0XgqEQiND+yFTchnaITkRzywvoagnswzE2pXZAoGAfKeM\nGlhXAmsYZkdpalAyUrwTHunU5ePSuJLpm9dtDSqRTvXXLYHvSRK08flFZZZhYSNO\nW6rx0HEs2cJlPM44gjoEeztQjDrodNAo9yrNz3cU3PNWhCa/g2XT/npAnpPFmQJk\nShQZvTVfyLHIZ8hgX7Y7NMDMO9S7TPZIBX+oPW8CgYBvLNAYRaajX55Y5mpmPc/A\nOqfvCpkPg7pibvMpEO2FIX0dlQ696R778+NkePNjK3vSnz75CHlyghbD40PWWRt2\nPBs2QNCKHNLsWoV8ZepqDsEaY2lUmHq7rCQExeclFfHZDvFu4F/Qb69+xQ8sFkME\nDN0f7lubxlW0/2NXECvuvw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-luu8t6we6qfh@lofty-voyage-232910.iam.gserviceaccount.com",
+  "client_id": "113679717033330014191",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-luu8t6we6qfh%40lofty-voyage-232910.iam.gserviceaccount.com"
+}
