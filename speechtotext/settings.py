@@ -92,6 +92,7 @@ WSGI_APPLICATION = 'speechtotext.wsgi.application'
 DATABASES = {
     'default': config('DATABASE_URL', default='postgres:///speech', cast=db_url),
 }
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "speechtotext.json"
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
