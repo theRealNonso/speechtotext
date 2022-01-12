@@ -20,7 +20,7 @@ Jinja2==2.10
 Markdown==2.6.10
 MarkupSafe==1.1.0
 oauthlib==2.1.0
-pipenv==2018.10.13
+pipenv==2022.1.8
 protobuf==3.6.1
 psycopg2==2.7.5
 pyasn1==0.4.4
